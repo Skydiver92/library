@@ -1,4 +1,4 @@
-package com.kuzmenko.library.controller;
+package com.kuzmenko.readlistcrud.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

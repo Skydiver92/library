@@ -6,9 +6,10 @@
 <body>
     <h1>Welcome</h1>
     <br/>
-    <form actiom="/" method="POST">
+    <form action="/" method="POST">
         <input type="text" name="name">
         <input type="submit" value="Submit">
+
     </form>
     <br/>
     <%
