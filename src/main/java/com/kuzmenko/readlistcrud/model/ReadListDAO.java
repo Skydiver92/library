@@ -44,7 +44,7 @@ public class ReadListDAO {
                 Book book = new Book();
                 book.setId(resultSet.getInt("ID"));
                 book.setDate(String.valueOf(resultSet.getDate("DATE")));
-                book.setBookName(resultSet.getString("BOOK"));
+                book.setBookName(resultSet.getString("BOOKNAME"));
                 book.setAuthor(resultSet.getString("AUTHOR"));
                 book.setGenre(resultSet.getString("GENRE"));
                 book.setMark(resultSet.getInt("MARK"));
@@ -63,7 +63,7 @@ public class ReadListDAO {
     public Book getByID(int id, Connection connection) {
 
         Book book = new Book();
-        String sql = "SELECT ID, DATE, BOOK, AUTHOR, GENRE, MARK, COMMENT FROM BOOK WHERE ID=?;";
+        String sql = "SELECT ID, DATE, BOOKNAME, AUTHOR, GENRE, MARK, COMMENT FROM BOOK WHERE ID=?;";
 
         try (
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
@@ -75,7 +75,7 @@ public class ReadListDAO {
             while (resultSet.next()) {
                 book.setId(resultSet.getInt("ID"));
                 book.setDate(resultSet.getString("DATE"));
-                book.setBookName(resultSet.getString("BOOK"));
+                book.setBookName(resultSet.getString("BOOKNAME"));
                 book.setAuthor(resultSet.getString("AUTHOR"));
                 book.setGenre(resultSet.getString("GENRE"));
                 book.setMark(resultSet.getInt("MARK"));
@@ -91,7 +91,7 @@ public class ReadListDAO {
 
     public void update(Book book, Connection connection) {
 
-        String sql = "UPDATE BOOK SET DATE=?, BOOK=?, AUTHOR=?, GENRE=?, MARK=?, COMMENT=? WHERE ID=?;";
+        String sql = "UPDATE BOOK SET DATE=?, BOOKNAME=?, AUTHOR=?, GENRE=?, MARK=?, COMMENT=? WHERE ID=?;";
 
         try (
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
