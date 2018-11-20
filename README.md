@@ -1,3 +1,3 @@
-# ReadListCRUD
+# ReadList
 
 Simple web application.

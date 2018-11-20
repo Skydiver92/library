@@ -1,28 +1,28 @@
-package com.kuzmenko.readlistcrud.model;
+package com.kuzmenko.readlist.model;
 
 import java.util.Objects;
 
 public class Book {
     public int id;
     public String date;
-    public String bookName;
+    public String title;
     public String author;
     public String genre;
     public int mark;
     public String comment;
 
-    public Book(String date, String bookName, String author, String genre, int mark, String comment) {
+    public Book(String date, String title, String author, String genre, int mark, String comment) {
         this.date = date;
-        this.bookName = bookName;
+        this.title = title;
         this.author = author;
         this.genre = genre;
         this.mark = mark;
         this.comment = comment;
     }
 
-    public Book(String date, String bookName, String author, String genre, int mark) {
+    public Book(String date, String title, String author, String genre, int mark) {
         this.date = date;
-        this.bookName = bookName;
+        this.title = title;
         this.author = author;
         this.genre = genre;
         this.mark = mark;
@@ -31,10 +31,10 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String date, String bookName, String author, String genre, int mark, String comment) {
+    public Book(int id, String date, String title, String author, String genre, int mark, String comment) {
         this.id = id;
         this.date = date;
-        this.bookName = bookName;
+        this.title = title;
         this.author = author;
         this.genre = genre;
         this.mark = mark;
@@ -58,12 +58,12 @@ public class Book {
         this.date = date;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -104,8 +104,8 @@ public class Book {
     public String toString() {
         return getClass().getSimpleName() + " (id: " +
                 id + " date " +
-                date + " bookName " +
-                bookName + " author " + author + " genre " + genre + " mark " + mark + " comment " + comment + ")";
+                date + " title " +
+                title + " author " + author + " genre " + genre + " mark " + mark + " comment " + comment + ")";
     }
 
 
@@ -117,7 +117,7 @@ public class Book {
         return id == book.id &&
                 mark == book.mark &&
                 Objects.equals(date, book.date) &&
-                Objects.equals(bookName, book.bookName) &&
+                Objects.equals(title, book.title) &&
                 Objects.equals(author, book.author) &&
                 Objects.equals(genre, book.genre) &&
                 Objects.equals(comment, book.comment);
@@ -125,6 +125,6 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, bookName, author, genre, mark, comment);
+        return Objects.hash(id, date, title, author, genre, mark, comment);
     }
 }

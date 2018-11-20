@@ -1,20 +1,18 @@
-package com.kuzmenko.readlistcrud.model;
+package com.kuzmenko.readlist.dao;
 
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.mysql.cj.jdbc.Driver;
 
 
 public class Factory {
 
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/readlistcrud_db?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/readlist_db?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "admin";
     public static Connection connection;
-
 
 
     public static Connection getConnection() {
