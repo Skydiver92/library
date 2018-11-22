@@ -8,14 +8,14 @@ import java.sql.SQLException;
 
 public class Factory {
 
-    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/readlist_db?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASSWORD = "admin";
-    public static Connection connection;
+    private final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private final String URL = "jdbc:mysql://localhost:3306/readlist_db?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private final String USER = "root";
+    private final String PASSWORD = "admin";
+    public Connection connection;
 
 
-    public static Connection getConnection() {
+    public  Connection getConnection() {
 
         try {
             if (connection == null) {

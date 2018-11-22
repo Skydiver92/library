@@ -1,18 +1,18 @@
 package com.kuzmenko.readlist.controller;
 
-import com.kuzmenko.readlist.dao.ReadListDAO;
-import com.kuzmenko.readlist.dao.ReadListDAOImpl;
-import com.kuzmenko.readlist.model.Book;
+        import com.kuzmenko.readlist.dao.ReadListDAO;
+        import com.kuzmenko.readlist.dao.ReadListDAOImpl;
+        import com.kuzmenko.readlist.model.Book;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+        import java.io.IOException;
+        import java.sql.SQLException;
+        import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+        import javax.servlet.RequestDispatcher;
+        import javax.servlet.ServletException;
+        import javax.servlet.http.HttpServlet;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
 
 /**
  * ControllerServlet.java
@@ -83,7 +83,7 @@ public class ReadListController extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Book existingBook = readListDAO.getByID(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ReadListForm.jsp");
         request.setAttribute("book", existingBook);
         dispatcher.forward(request, response);
 
@@ -113,9 +113,11 @@ public class ReadListController extends HttpServlet {
         int mark = Integer.parseInt(request.getParameter("mark"));
         String comment = request.getParameter("comment");
 
-        Book newBook = new Book(date,title,author,genre,mark,comment);
-        readListDAO.add(newBook);
+        Book newBook = new Book(id,date,title,author,genre,mark,comment);
+        readListDAO.update(newBook);
         response.sendRedirect("list");
+
+
     }
 
     private void deleteBook(HttpServletRequest request, HttpServletResponse response)
@@ -126,4 +128,5 @@ public class ReadListController extends HttpServlet {
         response.sendRedirect("list");
 
     }
+
 }

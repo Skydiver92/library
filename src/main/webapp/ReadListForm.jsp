@@ -63,7 +63,7 @@
                 <tr>
                     <th>Genre:</th>
                     <td>
-                        <select name = "genre">
+                        <select name = "genre" value="<c:out value='${book.genre}' />">
                             <option value = "Detective" selected>Detective</option>
                             <option value = "Drama">Drama</option>
                             <option value = "Romance">Romance</option>
@@ -79,11 +79,11 @@
                 <tr>
                     <th>Mark: </th>
                     <td>
-                        <input type = "radio" name = "mark" value = "<c:out value='${book.mark}' />"> 1
-                        <input type = "radio" name = "mark" value = "<c:out value='${book.mark}' />"> 2
-                        <input type = "radio" name = "mark" value = "<c:out value='${book.mark}' />"> 3
-                        <input type = "radio" name = "mark" value = "<c:out value='${book.mark}' />"> 4
-                        <input type = "radio" name = "mark" value = "<c:out value='${book.mark}' />"> 5
+                        <input type = "radio" name = "mark" value = "1"> 1
+                        <input type = "radio" name = "mark" value = "2"> 2
+                        <input type = "radio" name = "mark" value = "3"> 3
+                        <input type = "radio" name = "mark" value = "4"> 4
+                        <input type = "radio" name = "mark" value = "5"> 5
 
 
                     </td>
@@ -93,7 +93,6 @@
                     <td>
 
                         <textarea rows = "5" cols = "50" name = "comment" value = "<c:out value='${book.comment}' />">
-                            Write text here...
 
                         </textarea>
 

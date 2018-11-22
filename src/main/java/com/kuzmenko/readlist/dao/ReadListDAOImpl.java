@@ -104,7 +104,7 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
             preparedStatement.setString(4, book.getGenre());
             preparedStatement.setInt(5, book.getMark());
             preparedStatement.setString(6, book.getComment());
-            preparedStatement.setInt(6, book.getId());
+            preparedStatement.setInt(7, book.getId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

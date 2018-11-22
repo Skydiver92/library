@@ -1,71 +1,76 @@
-package com.kuzmenko.readlistcrud.model;
+package com.kuzmenko.readlist.model;
 
+import com.kuzmenko.readlist.dao.Factory;
+import com.kuzmenko.readlist.dao.ReadListDAOImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
-public class ReadListDAOTest extends Factory {
+public class ReadListDAOImplTest extends Factory {
+//
+//    private ReadListDAOImpl readListDAOImpl = new ReadListDAOImpl();
+//    private Connection connection = getConnection();
+//
+//    @ExampleTest
+//    public void add() {
+//
+//        //создаём тестовые данные
+//        Book expected = new Book("2017-01-20","Sherlok Holms","Arthur Conan Doil",
+//                "detective",5,"Good book about detective");
+//
+//        readListDAOImpl.add(expected,connection);
+//
+//
+//
+//
+//        //создаем список expected и заполняем его данными нашего метода
+//
+//
+//        //создаем actual в него помещаем данные для сравнения
+//        //то что мы предпологаем метод должен вернуть
+//        String sql = "SELECT* FROM BOOK";
+//
+//        Book actual = new Book();
+//        try (
+//                Statement statement = connection.createStatement()
+//        ) {
+//            ResultSet resultSet = statement.executeQuery(sql);
+//            while (resultSet.next()) {
+//
+//                actual.setDate(String.valueOf(resultSet.getDate("DATE")));
+//                actual.setTitle(resultSet.getString("BOOKNAME"));
+//                actual.setAuthor(resultSet.getString("AUTHOR"));
+//                actual.setGenre(resultSet.getString("GENRE"));
+//                actual.setMark(resultSet.getInt("MARK"));
+//                actual.setComment(resultSet.getString("COMMENT"));
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try (
+//                Statement statement = connection.createStatement()
+//        ) {
+//            statement.executeUpdate("DELETE  FROM BOOK");
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //запускаем тест, в случае если список expected и actual не будут равны
+//        //тест будет провален, о результатах теста читаем в консоли
+//        Assert.assertEquals(expected, actual);
+//
+//
+//    }
 
-    private ReadListDAO readListDAO = new ReadListDAO();
-    private Connection connection = getConnection();
-
-    @Test
-    public void add() {
-
-        //создаём тестовые данные
-        Book expected = new Book("2017-01-20","Sherlok Holms","Arthur Conan Doil",
-                "detective",5,"Good book about detective");
-
-        readListDAO.add(expected,connection);
-
-
-
-
-        //создаем список expected и заполняем его данными нашего метода
-
-
-        //создаем actual в него помещаем данные для сравнения
-        //то что мы предпологаем метод должен вернуть
-        String sql = "SELECT* FROM BOOK";
-
-        Book actual = new Book();
-        try (
-                Statement statement = connection.createStatement()
-        ) {
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-
-                actual.setDate(String.valueOf(resultSet.getDate("DATE")));
-                actual.setBookName(resultSet.getString("BOOKNAME"));
-                actual.setAuthor(resultSet.getString("AUTHOR"));
-                actual.setGenre(resultSet.getString("GENRE"));
-                actual.setMark(resultSet.getInt("MARK"));
-                actual.setComment(resultSet.getString("COMMENT"));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try (
-                Statement statement = connection.createStatement()
-        ) {
-            statement.executeUpdate("DELETE  FROM BOOK");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        //запускаем тест, в случае если список expected и actual не будут равны
-        //тест будет провален, о результатах теста читаем в консоли
-        Assert.assertEquals(expected, actual);
-
-
-    }
-
-//    @Test
+//    @ExampleTest
 //    public void getAll() {
 //
 //        Student student1 = new Student();
@@ -116,7 +121,7 @@ public class ReadListDAOTest extends Factory {
 //
 //    }
 //
-//    @Test
+//    @ExampleTest
 //    public void getByID() {
 //
 //        Student expected = new Student();
@@ -145,7 +150,7 @@ public class ReadListDAOTest extends Factory {
 //
 //    }
 //
-//    @Test
+//    @ExampleTest
 //    public void update() {
 //
 //        Student student1 = new Student();
@@ -196,7 +201,7 @@ public class ReadListDAOTest extends Factory {
 //
 //    }
 //
-//    @Test
+//    @ExampleTest
 //    public void remove() {
 //
 //        Student student1 = new Student();
@@ -235,4 +240,8 @@ public class ReadListDAOTest extends Factory {
 //
 //        Assert.assertEquals(expected, actual);
 //    }
+
+
+
+
 }
