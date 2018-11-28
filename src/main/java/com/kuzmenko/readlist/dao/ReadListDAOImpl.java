@@ -2,20 +2,19 @@ package com.kuzmenko.readlist.dao;
 
 import com.kuzmenko.readlist.model.Book;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadListDAOImpl extends Factory implements ReadListDAO  {
-    private Connection connection;
+public class ReadListDAOImpl extends Factory implements ReadListDAO {
 
-    public ReadListDAOImpl() {
-        connection = getConnection();
-
-    }
 
     public void add(Book book) {
-        String sql = "INSERT INTO BOOK (DATE, BOOKNAME, AUTHOR, GENRE, MARK, COMMENT) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO BOOK (DATE, TITLE, AUTHOR, GENRE, MARK, COMMENT) VALUES (?,?,?,?,?,?);";
+
         try (
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
         ) {
@@ -31,9 +30,7 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
         }
     }
 
-
     public List<Book> getAll() {
-
         List<Book> bookList = new ArrayList<>();
         String sql = "SELECT * FROM BOOK";
 
@@ -46,26 +43,23 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
                 Book book = new Book();
                 book.setId(resultSet.getInt("ID"));
                 book.setDate(String.valueOf(resultSet.getDate("DATE")));
-                book.setTitle(resultSet.getString("BOOKNAME"));
+                book.setTitle(resultSet.getString("TITLE"));
                 book.setAuthor(resultSet.getString("AUTHOR"));
                 book.setGenre(resultSet.getString("GENRE"));
                 book.setMark(resultSet.getInt("MARK"));
                 book.setComment(resultSet.getString("COMMENT"));
                 bookList.add(book);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return bookList;
     }
-
 
     public Book getByID(int id) {
 
         Book book = new Book();
-        String sql = "SELECT ID, DATE, BOOKNAME, AUTHOR, GENRE, MARK, COMMENT FROM BOOK WHERE ID=?;";
+        String sql = "SELECT ID, DATE, TITLE, AUTHOR, GENRE, MARK, COMMENT FROM BOOK WHERE ID=?;";
 
         try (
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
@@ -77,7 +71,7 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
             while (resultSet.next()) {
                 book.setId(resultSet.getInt("ID"));
                 book.setDate(resultSet.getString("DATE"));
-                book.setTitle(resultSet.getString("BOOKNAME"));
+                book.setTitle(resultSet.getString("TITLE"));
                 book.setAuthor(resultSet.getString("AUTHOR"));
                 book.setGenre(resultSet.getString("GENRE"));
                 book.setMark(resultSet.getInt("MARK"));
@@ -90,10 +84,9 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
         return book;
     }
 
-
     public void update(Book book) {
 
-        String sql = "UPDATE BOOK SET DATE=?, BOOKNAME=?, AUTHOR=?, GENRE=?, MARK=?, COMMENT=? WHERE ID=?;";
+        String sql = "UPDATE BOOK SET DATE=?, TITLE=?, AUTHOR=?, GENRE=?, MARK=?, COMMENT=? WHERE ID=?;";
 
         try (
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
@@ -110,9 +103,7 @@ public class ReadListDAOImpl extends Factory implements ReadListDAO  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public void remove(int id) {
 

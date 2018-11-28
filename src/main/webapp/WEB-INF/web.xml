@@ -19,6 +19,17 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <listener>
+        <listener-class>
+            com.kuzmenko.readlist.listener.ReadListListener
+        </listener-class>
+    </listener>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/Error.jsp</location>
+    </error-page>
+
     <!--<servlet>-->
         <!--<servlet-name>MyServlet</servlet-name>-->
         <!--<servlet-class>HelloServlet</servlet-class>-->
