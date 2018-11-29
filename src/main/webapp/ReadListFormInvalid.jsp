@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <html>
 <head>
     <title>ReadList management application</title>
@@ -16,6 +17,7 @@
 
     </h2>
 </center>
+
 <div align="center">
     <c:if test="${book != null}">
     <form action="/update" method="post">
@@ -33,6 +35,7 @@
                             Add New Book
                         </c:if>
                     </h2>
+                    <h4 style="color:red">All fields must be filled! Try again.</h4><br/>
                 </caption>
                 <c:if test="${book != null}">
                     <input type="hidden" name="id" value="<c:out value='${book.id}' />" />

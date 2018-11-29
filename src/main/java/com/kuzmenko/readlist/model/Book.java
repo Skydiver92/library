@@ -8,10 +8,10 @@ public class Book {
     public String title;
     public String author;
     public String genre;
-    public int mark;
+    public Integer mark;
     public String comment;
 
-    public Book(String date, String title, String author, String genre, int mark, String comment) {
+    public Book(String date, String title, String author, String genre, Integer mark, String comment) {
         this.date = date;
         this.title = title;
         this.author = author;
@@ -20,7 +20,7 @@ public class Book {
         this.comment = comment;
     }
 
-    public Book(String date, String title, String author, String genre, int mark) {
+    public Book(String date, String title, String author, String genre, Integer mark) {
         this.date = date;
         this.title = title;
         this.author = author;
@@ -31,7 +31,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String date, String title, String author, String genre, int mark, String comment) {
+    public Book(int id, String date, String title, String author, String genre, Integer mark, String comment) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -86,7 +86,7 @@ public class Book {
         return mark;
     }
 
-    public void setMark(int mark) {
+    public void setMark(Integer mark) {
         this.mark = mark;
     }
 
@@ -99,6 +99,15 @@ public class Book {
     }
 
 
+    public boolean validate() {
+        if (this.date == null || this.title == null || this.author == null ||
+                this.genre == null || this.mark == null || this.comment == null) {
+            return false;
+        } else {
+            return  true;
+        }
+
+    }
 
     @Override
     public String toString() {
