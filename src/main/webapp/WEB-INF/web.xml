@@ -9,6 +9,10 @@
         This is simple CRUD application
     </description>
 
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>ReadList.jsp</welcome-file>-->
+<!--    </welcome-file-list>-->
+
     <servlet>
         <servlet-name>ReadListController</servlet-name>
         <servlet-class>com.kuzmenko.readlist.controller.ReadListController</servlet-class>
