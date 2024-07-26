@@ -1,12 +1,10 @@
 package com.kuzmenko.readlist.listener;
 
 import com.kuzmenko.readlist.dao.ReadListDAOImpl;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 
 public class ReadListListener implements ServletContextListener {
 
@@ -16,7 +14,7 @@ public class ReadListListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext ctx = servletContextEvent.getServletContext();
         ReadListDAOImpl readListDAO = new ReadListDAOImpl();
-        readListDAO.getConnection();
+        readListDAO.establishConnection();
         ctx.setAttribute("readListDAO", readListDAO);
         System.out.println("Listener work");
     }

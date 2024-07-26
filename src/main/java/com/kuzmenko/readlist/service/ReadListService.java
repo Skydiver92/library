@@ -2,11 +2,11 @@ package com.kuzmenko.readlist.service;
 
 import com.kuzmenko.readlist.dao.ReadListDAOImpl;
 import com.kuzmenko.readlist.model.Book;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,11 +24,9 @@ public class ReadListService extends ReadListDAOImpl {
         try {
             List<Book> listBook = readListDAO.getAll();
             request.setAttribute("listBook", listBook);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("ReadList.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/ReadList.jsp");
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -37,9 +35,7 @@ public class ReadListService extends ReadListDAOImpl {
         try {
             RequestDispatcher dispatcher = request.getRequestDispatcher("ReadListForm.jsp");
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -51,9 +47,7 @@ public class ReadListService extends ReadListDAOImpl {
             RequestDispatcher dispatcher = request.getRequestDispatcher("ReadListForm.jsp");
             request.setAttribute("book", existingBook);
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }

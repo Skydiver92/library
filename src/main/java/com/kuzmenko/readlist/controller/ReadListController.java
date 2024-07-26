@@ -1,18 +1,10 @@
 package com.kuzmenko.readlist.controller;
 
-import com.kuzmenko.readlist.dao.ReadListDAO;
 import com.kuzmenko.readlist.dao.ReadListDAOImpl;
 import com.kuzmenko.readlist.service.ReadListService;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * ControllerServlet.java
@@ -20,18 +12,18 @@ import javax.servlet.http.HttpServletResponse;
  * requests from the user.
  */
 public class ReadListController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+
     private ReadListService readListService;
 
 
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         doGet(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getServletPath();
         ReadListDAOImpl readListDAO = (ReadListDAOImpl) getServletContext().getAttribute("readListDAO");
         readListService = new ReadListService(readListDAO);
@@ -39,33 +31,18 @@ public class ReadListController extends HttpServlet {
 
         try {
             switch (action) {
-                case "/new":
-                    readListService.showNewForm(request, response);
-                    break;
-                case "/insert":
-                    readListService.insertBook(request, response);
-                    break;
-                case "/delete":
-                    readListService.deleteBook(request, response);
-                    break;
-                case "/edit":
-                    readListService.showEditForm(request, response);
-                    break;
-                case "/update":
-                    readListService.updateBook(request, response);
-                    break;
-                default:
-                    readListService.listBook(request, response);
-                    break;
+                case "/new" -> readListService.showNewForm(request, response);
+                case "/insert" -> readListService.insertBook(request, response);
+                case "/delete" -> readListService.deleteBook(request, response);
+                case "/edit" -> readListService.showEditForm(request, response);
+                case "/update" -> readListService.updateBook(request, response);
+                default -> readListService.listBook(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-
-
 
     public void destroy(){
         readListService.closeConnection();
