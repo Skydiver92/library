@@ -1,20 +1,23 @@
 package com.kuzmenko.readlist.dao;
 
-import com.kuzmenko.readlist.model.Book;
-
-import java.sql.Connection;
 import java.util.List;
 
-public interface ReadListDAO {
+import com.kuzmenko.readlist.model.Book;
 
-    public void add(Book book);
+ interface ReadListDAO {
 
-    public List<Book> getAll();
+     void add(Book book);
 
-    public Book getByID(int id);
 
-    public void update(Book book);
+     List<Book> getAll();
 
-    public void remove(int id);
+
+     Book getByID(Long id);
+
+
+     void update(Book book);
+
+
+     void remove(Long id);
 
 }

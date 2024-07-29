@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <html>
 <head>
@@ -11,20 +9,18 @@
 <center>
     <h1>ReadList Manager</h1>
     <h2>
-        <a href="/new">Add New Book</a>
+        <a href="${pageContext.request.contextPath}/new">Add New Book</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/list">List All Books</a>
+        <a href="${pageContext.request.contextPath}/list">List All Books</a>
 
     </h2>
 </center>
 
 <div align="center">
     <c:if test="${book != null}">
-    <form action="/update" method="post">
-        </c:if>
+    <form action="${pageContext.request.contextPath}/update" method="post"> </c:if>
         <c:if test="${book == null}">
-        <form action="/insert" method="post">
-            </c:if>
+        <form action="${pageContext.request.contextPath}/insert" method="post">            </c:if>
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
@@ -38,18 +34,10 @@
                     <h4 style="color:red">All fields must be filled! Try again.</h4><br/>
                 </caption>
                 <c:if test="${book != null}">
-                    <input type="hidden" name="id" value="<c:out value='${book.id}' />" />
+                    <input type="hidden" name="id" value="<c:out value='${book.id}' />"/>
                 </c:if>
                 <tr>
-                    <th>Date: </th>
-                    <td>
-                        <input type="text" name="date" size="45"
-                               value="<c:out value='${book.date}' />"
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <th>Title: </th>
+                    <th>Title:</th>
                     <td>
                         <input type="text" name="title" size="45"
                                value="<c:out value='${book.title}' />"
@@ -57,7 +45,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Author: </th>
+                    <th>Author:</th>
                     <td>
                         <input type="text" name="author" size="45"
                                value="<c:out value='${book.author}' />"
@@ -67,36 +55,36 @@
                 <tr>
                     <th>Genre:</th>
                     <td>
-                        <select name = "genre" value="<c:out value='${book.genre}' />">
-                            <option value = "Detective" selected>Detective</option>
-                            <option value = "Drama">Drama</option>
-                            <option value = "Romance">Romance</option>
-                            <option value = "Science">Science</option>
-                            <option value = "History">History</option>
-                            <option value = "Poetri">Poetri</option>
-                            <option value = "Other">Other</option>
+                        <select name="genre" value="<c:out value='${book.genre}' />">
+                            <option value="Detective" selected>Detective</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Science">Science</option>
+                            <option value="History">History</option>
+                            <option value="Poetri">Poetri</option>
+                            <option value="Other">Other</option>
 
                         </select>
                     </td>
                 </tr>
 
                 <tr>
-                    <th>Mark: </th>
+                    <th>Mark:</th>
                     <td>
-                        <input type = "radio" name = "mark" value = "1"> 1
-                        <input type = "radio" name = "mark" value = "2"> 2
-                        <input type = "radio" name = "mark" value = "3"> 3
-                        <input type = "radio" name = "mark" value = "4"> 4
-                        <input type = "radio" name = "mark" value = "5"> 5
+                        <input type="radio" name="mark" value="1"> 1
+                        <input type="radio" name="mark" value="2"> 2
+                        <input type="radio" name="mark" value="3"> 3
+                        <input type="radio" name="mark" value="4"> 4
+                        <input type="radio" name="mark" value="5"> 5
 
 
                     </td>
                 </tr>
                 <tr>
-                    <th>Comment: </th>
+                    <th>Comment:</th>
                     <td>
 
-                        <textarea rows = "5" cols = "50" name = "comment" value = "<c:out value='${book.comment}' />">
+                        <textarea rows="5" cols="50" name="comment" value="<c:out value='${book.comment}' />">
 
                         </textarea>
 
@@ -104,12 +92,13 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Save" />
+                        <input type="submit" value="Save"/>
                     </td>
                 </tr>
 
             </table>
         </form>
+        </c:if>
 </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <html>
 <head>
     <title>ReadList management application</title>
@@ -19,7 +20,6 @@
         <caption><h2>List of Books</h2></caption>
         <tr>
             <th>ID</th>
-            <th>Date</th>
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
@@ -29,16 +29,15 @@
 
 
         </tr>
-        <%--@elvariable id="listBook" type="java.util.List"--%>
-        <c:forEach var="book" items="${listBook}">
+        <%--@elvariable id="bookList" type="java.util.List"--%>
+        <c:forEach var="book" items="${bookList}">
             <tr>
-                <td><c:out value="${book.id}" /></td>
-                <td><c:out value="${book.date}" /></td>
-                <td><c:out value="${book.title}" /></td>
-                <td><c:out value="${book.author}" /></td>
-                <td><c:out value="${book.genre}" /></td>
-                <td><c:out value="${book.mark}" /></td>
-                <td><c:out value="${book.comment}" /></td>
+                <td><c:out value="${book.id}"/></td>
+                <td><c:out value="${book.title}"/></td>
+                <td><c:out value="${book.author}"/></td>
+                <td><c:out value="${book.genre}"/></td>
+                <td><c:out value="${book.mark}"/></td>
+                <td><c:out value="${book.comment}"/></td>
                 <td>
                     <a href="${pageContext.request.contextPath}/edit?id=<c:out value='${book.id}' />">Edit</a>
                     <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}' />">Delete</a>
