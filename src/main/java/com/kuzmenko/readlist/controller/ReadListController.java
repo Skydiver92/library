@@ -1,33 +1,18 @@
 package com.kuzmenko.readlist.controller;
 
-import com.kuzmenko.readlist.dao.ReadListDAOImpl;
 import com.kuzmenko.readlist.service.ReadListService;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * ControllerServlet.java
- * This servlet acts as a page controller for the application, handling all
- * requests from the user.
- */
 public class ReadListController extends HttpServlet {
 
-    private ReadListService readListService;
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        doGet(request, response);
-    }
+    private final ReadListService readListService = new ReadListService();
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getServletPath();
-        ReadListDAOImpl readListDAO = (ReadListDAOImpl) getServletContext().getAttribute("readListDAO");
-        readListService = new ReadListService(readListDAO);
-
 
         try {
             switch (action) {
@@ -44,10 +29,9 @@ public class ReadListController extends HttpServlet {
 
     }
 
-    public void destroy(){
-        readListService.closeConnection();
-
-
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        doGet(request, response);
     }
 
 }

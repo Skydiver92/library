@@ -17,9 +17,9 @@
 </center>
 <div align="center">
     <c:if test="${book != null}">
-    <form action="${pageContext.request.contextPath}/update" method="post"> </c:if>
+    <form name="myForm" action="${pageContext.request.contextPath}/update" method="post"> </c:if>
         <c:if test="${book == null}">
-        <form action="${pageContext.request.contextPath}/insert" method="post"> </c:if>
+        <form name="myForm" action="${pageContext.request.contextPath}/insert" method="post"> </c:if>
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
@@ -32,7 +32,7 @@
                     </h2>
                 </caption>
                 <c:if test="${book != null}">
-                    <input type="hidden" name="id" value="<c:out value='${book.id}' />"/>
+                    <input type="text" name="id" value="<c:out value='${book.id}' />"/>
                 </c:if>
                 <tr>
                     <th>Title:</th>
@@ -64,18 +64,20 @@
                 <tr>
                     <th>Mark:</th>
                     <td>
-                        <input type="radio" name="mark" value="1"> 1
-                        <input type="radio" name="mark" value="2"> 2
-                        <input type="radio" name="mark" value="3"> 3
-                        <input type="radio" name="mark" value="4"> 4
-                        <input type="radio" name="mark" value="5"> 5
+<%--                        <c:if test="${book != null}">--%>
+<%--                            <c:set target="myForm" property="mark" value="${book.mark}"/>--%>
+<%--                        </c:if>--%>
+                            <input type="radio" name="mark" value="1"> 1
+                            <input type="radio" name="mark" value="2"> 2
+                            <input type="radio" name="mark" value="3"> 3
+                            <input type="radio" name="mark" value="4"> 4
+                            <input type="radio" name="mark" value="5"> 5
                     </td>
                 </tr>
                 <tr>
                     <th>Comment:</th>
                     <td>
-                        <textarea rows="5" cols="50" name="comment"
-                                  value="<c:out value='${book.comment}' />"></textarea>
+                        <textarea rows="5" cols="50" name="comment"> <c:out value='${book.comment}'/></textarea>
                     </td>
                 </tr>
                 <tr>

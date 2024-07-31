@@ -1,5 +1,7 @@
 package com.kuzmenko.readlist.dao;
 
+import com.kuzmenko.readlist.model.Book;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,10 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kuzmenko.readlist.model.Book;
+public class DatabaseDAO extends DatabaseFactory implements ReadListDAO {
 
-public class ReadListDAOImpl extends Factory implements ReadListDAO {
-
+    static {
+        establishConnection();
+    }
 
     public void add(Book book) {
         String sql = "INSERT INTO BOOK (ID, TITLE, AUTHOR, GENRE, MARK, COMMENT) VALUES (?,?,?,?,?,?);";

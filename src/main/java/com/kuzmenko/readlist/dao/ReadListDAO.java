@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kuzmenko.readlist.model.Book;
 
- interface ReadListDAO {
+ public interface ReadListDAO {
 
      void add(Book book);
 

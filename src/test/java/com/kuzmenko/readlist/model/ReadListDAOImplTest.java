@@ -1,17 +1,9 @@
 package com.kuzmenko.readlist.model;
 
-import com.kuzmenko.readlist.dao.Factory;
-import com.kuzmenko.readlist.dao.ReadListDAOImpl;
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.kuzmenko.readlist.dao.DatabaseFactory;
 
 
-public class ReadListDAOImplTest extends Factory {
+public class ReadListDAOImplTest extends DatabaseFactory {
 //
 //    private ReadListDAOImpl readListDAOImpl = new ReadListDAOImpl();
 //    private Connection connection = getConnection();
