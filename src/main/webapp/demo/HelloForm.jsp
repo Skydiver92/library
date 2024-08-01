@@ -4,7 +4,7 @@
 </head>
 <body>
 <h2> Hello user form:</h2>
-<form action="HelloPage.jsp" method="GET">
+<form action="${pageContext.request.contextPath}/demo/HelloPage.jsp" method="GET">
     UserName:
     <label>
         <input type="text" name="userName">

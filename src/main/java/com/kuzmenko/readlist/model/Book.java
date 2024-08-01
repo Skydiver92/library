@@ -141,11 +141,4 @@ public class Book {
                 '}';
     }
 
-
-    public boolean validate() {
-        return this.title != null && this.author != null &&
-                this.genre != null && this.mark != null && this.comment != null;
-
-    }
-
 }

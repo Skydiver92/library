@@ -20,7 +20,7 @@
     <c:if test="${book != null}">
     <form action="${pageContext.request.contextPath}/update" method="post"> </c:if>
         <c:if test="${book == null}">
-        <form action="${pageContext.request.contextPath}/insert" method="post">            </c:if>
+        <form action="${pageContext.request.contextPath}/insert" method="post"></c:if>
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
@@ -34,13 +34,13 @@
                     <h4 style="color:red">All fields must be filled! Try again.</h4><br/>
                 </caption>
                 <c:if test="${book != null}">
-                    <input type="hidden" name="id" value="<c:out value='${book.id}' />"/>
+                    <input type="hidden" name="id" value="<c:out value='${book.id}'/>"/>
                 </c:if>
                 <tr>
                     <th>Title:</th>
                     <td>
                         <input type="text" name="title" size="45"
-                               value="<c:out value='${book.title}' />"
+                               value="<c:out value='${book.title}'/>"
                         />
                     </td>
                 </tr>
@@ -48,14 +48,14 @@
                     <th>Author:</th>
                     <td>
                         <input type="text" name="author" size="45"
-                               value="<c:out value='${book.author}' />"
+                               value="<c:out value='${book.author}'/>"
                         />
                     </td>
                 </tr>
                 <tr>
                     <th>Genre:</th>
                     <td>
-                        <select name="genre" value="<c:out value='${book.genre}' />">
+                        <select name="genre" value="<c:out value='${book.genre}'/>">
                             <option value="Detective" selected>Detective</option>
                             <option value="Drama">Drama</option>
                             <option value="Romance">Romance</option>
@@ -84,7 +84,7 @@
                     <th>Comment:</th>
                     <td>
 
-                        <textarea rows="5" cols="50" name="comment" value="<c:out value='${book.comment}' />">
+                        <textarea rows="5" cols="50" name="comment" value="<c:out value='${book.comment}'/>">
 
                         </textarea>
 
@@ -98,7 +98,6 @@
 
             </table>
         </form>
-        </c:if>
 </div>
 </body>
 </html>

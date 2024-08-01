@@ -3,13 +3,12 @@ package com.kuzmenko.readlist.controller;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/helloJsp")
-public class HelloJspController extends HttpServlet {
+//@WebServlet(value = "/helloForm") // Can be used instead web.xml
+public class HelloFormJspController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

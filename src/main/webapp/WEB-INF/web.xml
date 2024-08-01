@@ -9,10 +9,35 @@
         <servlet-name>ReadListController</servlet-name>
         <servlet-class>com.kuzmenko.readlist.controller.ReadListController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HelloController</servlet-name>
+        <servlet-class>com.kuzmenko.readlist.controller.HelloController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelloFormJspController</servlet-name>
+        <servlet-class>com.kuzmenko.readlist.controller.HelloFormJspController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelloUserJspController</servlet-name>
+        <servlet-class>com.kuzmenko.readlist.controller.HelloUserJspController</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>ReadListController</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloController</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloFormJspController</servlet-name>
+        <url-pattern>/helloForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloUserJspController</servlet-name>
+        <url-pattern>/helloUser</url-pattern>
     </servlet-mapping>
 
     <listener>

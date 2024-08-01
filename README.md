@@ -14,5 +14,5 @@ mvn clean install
 
 - Visit http://localhost:8080/com_kuzmenko_readlist_war/hello?userName=MyName
 - Visit http://localhost:8080/com_kuzmenko_readlist_war/hello
-- Visit http://localhost:8080/com_kuzmenko_readlist_war/helloJsp
+- Visit http://localhost:8080/com_kuzmenko_readlist_war/helloForm
 - Visit http://localhost:8080/com_kuzmenko_readlist_war/demo/HelloForm.jsp

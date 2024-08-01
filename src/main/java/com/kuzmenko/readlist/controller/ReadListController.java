@@ -1,6 +1,9 @@
 package com.kuzmenko.readlist.controller;
 
+import java.io.IOException;
+
 import com.kuzmenko.readlist.service.ReadListService;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +15,7 @@ public class ReadListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        String action = request.getServletPath();
+        var action = request.getServletPath();
 
         try {
             switch (action) {
@@ -25,6 +28,15 @@ public class ReadListController extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            var dispatcher = request.getRequestDispatcher("Error.jsp");
+            request.setAttribute("exception", e);
+
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
         }
 
     }

@@ -2,22 +2,17 @@ package com.kuzmenko.readlist.controller;
 
 import java.io.IOException;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//@WebServlet(value = "/hello") // Can be used instead web.xml
-public class HelloController extends HttpServlet {
+//@WebServlet(value = "/helloUser") // Can be used instead web.xml
+public class HelloUserJspController extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        var username = request.getParameter("userName") != null ? request.getParameter("userName") : "man";
-        var writer = response.getWriter();
-        writer.println("<html> <body>");
-        writer.println("<h1>Hello world!</h1>");
-        writer.println("<h3>Hello " + username + " welcome to Servlet/JSP programming!</h3>");
-        writer.println("</body> </html>");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("demo/HelloUser.jsp").forward(request, response);
     }
 
 

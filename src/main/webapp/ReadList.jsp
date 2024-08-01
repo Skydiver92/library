@@ -39,8 +39,8 @@
                 <td><c:out value="${book.mark}"/></td>
                 <td><c:out value="${book.comment}"/></td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/edit?id=<c:out value='${book.id}' />">Edit</a>
-                    <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}' />">Delete</a>
+                    <a href="${pageContext.request.contextPath}/edit?id=<c:out value='${book.id}'/>">Edit</a>
+                    <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}'/>">Delete</a>
                 </td>
             </tr>
         </c:forEach>
